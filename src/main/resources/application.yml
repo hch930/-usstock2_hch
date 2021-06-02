@@ -1,0 +1,19 @@
+spring:
+  autoconfigure:
+    exclude:
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#Thymeleaf Cache Setting
+  thymeleaf:
+     mode: HTML
+     encoding: UTF-8
+     prefix: classpath:templates/
+     suffix: .html
+     cache: false
+     check-template-location: true
+
+logging:
+  config: classpath:log4j2.yml
+  
+  level: 
+    org.springframework.security: debug
+  
