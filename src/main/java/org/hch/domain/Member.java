@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,16 +25,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "member", uniqueConstraints = {@UniqueConstraint(name = "ID_EMAIL_UNIQUE", columnNames = {"ID", "EMAIL"})})
+@Table(name = "member", uniqueConstraints = {@UniqueConstraint(name = "NAME_EMAIL_UNIQUE", columnNames = {"USERNAME", "EMAIL"})})
 public class Member {
 	
 	@Id
-	@Length(min = 4)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	@Column(nullable = false)
 	@NotBlank
 	@Length(min = 4)
-	private String name;
+	private String username;
 	@Column(nullable = false)
 	@NotBlank
 	@Length(min = 4)
@@ -45,7 +47,7 @@ public class Member {
 	@Email
 	private String email;
 	@Column(nullable = false)
-	private boolean enabled;
+	private Boolean enabled;
 	@CreationTimestamp
 	private Date regDate;
 	@CreationTimestamp

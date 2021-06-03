@@ -1,7 +1,1 @@
-[INFO ] 2021-06-02 16:57:07.888 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
-[INFO ] 2021-06-02 16:57:07.894 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-[INFO ] 2021-06-02 16:57:07.896 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-[INFO ] 2021-06-02 16:57:07.899 [restartedMain] Usstock2HchApplication - Started Usstock2HchApplication in 0.289 seconds (JVM running for 9276.874)
-[INFO ] 2021-06-02 16:57:07.899 [restartedMain] ApplicationAvailabilityBean - Application availability state LivenessState changed to CORRECT
-[INFO ] 2021-06-02 16:57:07.900 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-[INFO ] 2021-06-02 16:57:07.900 [restartedMain] ApplicationAvailabilityBean - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+[INFO ] 2021-06-02 17:27:52.586 [RMI TCP Connection(2)-127.0.0.1] ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC

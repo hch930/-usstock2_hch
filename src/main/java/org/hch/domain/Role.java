@@ -2,10 +2,11 @@ package org.hch.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.Length;
 
 import lombok.Data;
 
@@ -14,8 +15,8 @@ import lombok.Data;
 @Table(name = "roles")
 public class Role {
 	@Id
-	@Length(min = 4)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	@Column(unique = true)
 	private String role;
 }
