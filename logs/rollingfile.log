@@ -1,1 +1,22 @@
-[INFO ] 2021-06-02 17:27:52.586 [RMI TCP Connection(2)-127.0.0.1] ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+[INFO ] 2021-06-04 16:01:48.961 [restartedMain] StandardService - Stopping service [Tomcat]
+[INFO ] 2021-06-04 16:01:48.983 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2021-06-04 16:01:48.993 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field memberRepository in org.hch.service.UserServiceImpl required a bean of type 'org.hch.repository.MemberRepository' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.hch.repository.MemberRepository' in your configuration.
+

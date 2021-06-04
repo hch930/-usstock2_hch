@@ -8,17 +8,21 @@ import org.hch.domain.Role;
 import org.hch.eo.ERole;
 import org.hch.repository.MemberRepository;
 import org.hch.repository.RoleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
 @Service(value = "userServiceImpl")
 public class UserServiceImpl implements UserService{
-	private MemberRepository memberRepository;
-	private RoleRepository roleRepository;
-	private BCryptPasswordEncoder bcryptPasswordEncoder;
+
+	@Autowired
+	private  MemberRepository memberRepository;
+	@Autowired
+	private  RoleRepository roleRepository;
+	@Autowired
+	private  BCryptPasswordEncoder bcryptPasswordEncoder;
 	
 	@Override
 	public Member getUserByEmail(String email) throws Exception {
