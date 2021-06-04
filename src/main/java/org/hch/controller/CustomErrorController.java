@@ -3,7 +3,6 @@ package org.hch.controller;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
-import org.hibernate.jpa.boot.internal.PersistenceXmlParser.ErrorHandlerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
