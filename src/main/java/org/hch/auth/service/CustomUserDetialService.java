@@ -1,4 +1,4 @@
-package org.hch.service;
+package org.hch.auth.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,8 +8,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
-import org.hch.domain.Member;
-import org.hch.domain.Role;
+import org.hch.auth.domain.Member;
+import org.hch.auth.domain.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;

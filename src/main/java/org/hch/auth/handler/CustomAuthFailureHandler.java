@@ -1,4 +1,4 @@
-package org.hch.handler;
+package org.hch.auth.handler;
 
 import java.io.IOException;
 

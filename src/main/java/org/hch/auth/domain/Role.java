@@ -1,4 +1,4 @@
-package org.hch.domain;
+package org.hch.auth.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

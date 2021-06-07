@@ -1,26 +1,28 @@
-package org.hch.service;
+package org.hch.auth.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-import org.hch.domain.Member;
-import org.hch.domain.Role;
-import org.hch.eo.ERole;
-import org.hch.repository.MemberRepository;
-import org.hch.repository.RoleRepository;
+import org.hch.auth.domain.Member;
+import org.hch.auth.domain.Role;
+import org.hch.auth.eo.ERole;
+import org.hch.auth.repository.MemberRepository;
+import org.hch.auth.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service(value = "userServiceImpl")
+@Service
+@ComponentScan(basePackages = "org.hch.repository")
 public class UserServiceImpl implements UserService{
-
+	
 	@Autowired
-	private  MemberRepository memberRepository;
+	private MemberRepository memberRepository;
 	@Autowired
-	private  RoleRepository roleRepository;
+	private RoleRepository roleRepository;
 	@Autowired
-	private  BCryptPasswordEncoder bcryptPasswordEncoder;
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
 	@Override
 	public Member getUserByEmail(String email) throws Exception {

@@ -1,4 +1,4 @@
-package org.hch.eo;
+package org.hch.auth.eo;
 
 public enum ERole {
 	ADMIN("ROLE_ADMIN"), MANAGER("ROLE_MANAGER"), GUEST("ROLE_GUEST");

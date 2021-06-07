@@ -1,4 +1,4 @@
-package org.hch.handler;
+package org.hch.auth.handler;
 
 import java.io.IOException;
 import java.util.Set;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hch.eo.ERole;
+import org.hch.auth.eo.ERole;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.DefaultRedirectStrategy;

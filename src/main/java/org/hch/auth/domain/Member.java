@@ -1,4 +1,4 @@
-package org.hch.domain;
+package org.hch.auth.domain;
 
 import java.util.Date;
 import java.util.Set;

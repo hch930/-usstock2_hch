@@ -1,6 +1,6 @@
-package org.hch.service;
+package org.hch.auth.service;
 
-import org.hch.domain.Member;
+import org.hch.auth.domain.Member;
 
 public interface UserService {
 	public Member getUserByEmail(String email) throws Exception;

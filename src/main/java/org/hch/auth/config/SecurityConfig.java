@@ -1,9 +1,9 @@
-package org.hch.config;
+package org.hch.auth.config;
 
-import org.hch.eo.ERole;
-import org.hch.handler.CustomAuthFailureHandler;
-import org.hch.handler.CustomAuthSuccessHandler;
-import org.hch.service.CustomUserDetialService;
+import org.hch.auth.eo.ERole;
+import org.hch.auth.handler.CustomAuthFailureHandler;
+import org.hch.auth.handler.CustomAuthSuccessHandler;
+import org.hch.auth.service.CustomUserDetialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +20,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
+	
 	@Autowired
-	private  BCryptPasswordEncoder bcryptPasswordEncoder;
+	private BCryptPasswordEncoder bcryptPasswordEncoder;
+	
 	@Autowired
-	private  CustomUserDetialService userDetailsService;
+	private CustomUserDetialService userDetailsService;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -51,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.frameOptions().disable()
 			.and()
 		.formLogin()
-				.loginPage("/login")
+//				.loginPage("/login")
 				.defaultSuccessUrl("/home")
 				.failureUrl("/login?error=true")
 				.successHandler(successHandler())
@@ -61,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.and()
 		.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login")
+//				.logoutSuccessUrl("/login")
 				.and()
 		.exceptionHandling()
 				.accessDeniedPage("/access-denied");
