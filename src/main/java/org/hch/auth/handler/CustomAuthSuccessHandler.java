@@ -40,6 +40,7 @@ public class CustomAuthSuccessHandler implements AuthenticationSuccessHandler{
 	
 	private void redirectStrategy(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 	throws IOException, ServletException{
+		
 		SavedRequest savedRequest = requestCache.getRequest(request, response);
 		if(savedRequest == null) {
 			redirectStrategy.sendRedirect(request, response, DEFAULT_LOGIN_SUCCESS_URL);
