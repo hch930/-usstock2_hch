@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.frameOptions().disable()
 			.and()
 		.formLogin()
-//				.loginPage("/login")
+				.loginPage("/login")
 				.defaultSuccessUrl("/home")
 				.failureUrl("/login?error=true")
 				.successHandler(successHandler())
@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.and()
 		.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.logoutSuccessUrl("/login")
+				.logoutSuccessUrl("/login")
 				.and()
 		.exceptionHandling()
 				.accessDeniedPage("/access-denied");
