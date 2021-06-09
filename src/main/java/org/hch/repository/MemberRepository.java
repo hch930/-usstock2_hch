@@ -1,6 +1,6 @@
 package org.hch.repository;
 
-import org.hch.domain.Member;
+import org.hch.auth.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
