@@ -1,22 +1,4 @@
-[INFO ] 2021-06-04 16:01:48.961 [restartedMain] StandardService - Stopping service [Tomcat]
-[INFO ] 2021-06-04 16:01:48.983 [restartedMain] ConditionEvaluationReportLoggingListener - 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-[ERROR] 2021-06-04 16:01:48.993 [restartedMain] LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field memberRepository in org.hch.service.UserServiceImpl required a bean of type 'org.hch.repository.MemberRepository' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'org.hch.repository.MemberRepository' in your configuration.
-
+[DEBUG] 2021-06-07 15:30:05.471 [http-nio-8080-exec-5] HttpSessionSecurityContextRepository - Did not store empty SecurityContext
+[DEBUG] 2021-06-07 15:30:05.477 [http-nio-8080-exec-5] SecurityContextPersistenceFilter - Cleared SecurityContextHolder to complete request
+[INFO ] 2021-06-07 18:00:35.639 [RMI TCP Connection(2)-127.0.0.1] SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2021-06-07 18:00:35.654 [RMI TCP Connection(2)-127.0.0.1] ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC

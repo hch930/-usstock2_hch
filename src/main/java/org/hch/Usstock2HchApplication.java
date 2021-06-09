@@ -3,7 +3,7 @@ package org.hch;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.hch.repository")
 public class Usstock2HchApplication {
 
 	public static void main(String[] args) {

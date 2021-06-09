@@ -3,8 +3,8 @@ package org.hch.controller;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import org.hch.domain.Member;
-import org.hch.service.UserService;
+import org.hch.auth.domain.Member;
+import org.hch.auth.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -23,18 +23,15 @@ public class LoginController {
 	@Resource(name="userServiceImpl")
 	private UserService userService;
 	
-	@RequestMapping(value= {"/","/login"}, method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = {"/", "/login"}, method = {RequestMethod.GET, RequestMethod.POST})
 	public String login(Model model) {
-		return "auth/login";
-	}
-	
-	@GetMapping("/loginSuccess")
-	public void loginSuccess() {
+		return "/auth/login";
 	}
 	
 	@GetMapping("/register")
-	public String register() { 
-		return "auth/register";
+	public String register(Model model) {
+		model.addAttribute("member", new Member());
+		return "/auth/register";
 	}
 	
 	@PostMapping("/register")
@@ -49,7 +46,7 @@ public class LoginController {
 			}
 			
 			if(bindingResult.hasErrors()) {
-				log.error("[ykson] : " + bindingResult.getFieldError().toString());
+				log.error("[hch] : " + bindingResult.getFieldError().toString());
 			}else {
 				userService.setUser(member);
 				model.addAttribute("user", new Member());
@@ -60,7 +57,7 @@ public class LoginController {
 			log.error(e.getMessage());
 			model.addAttribute("successMessage", "FAIL: " + e.getMessage());
 		}
-		return "auth/register";
+		return "/auth/register";
 	}
 	
 	@GetMapping("/home")
@@ -70,7 +67,7 @@ public class LoginController {
 		try {
 			member = userService.getUserByUsername(auth.getName());
 		}catch(Exception e) {
-			log.error("[ykson]" + e.getMessage());
+			log.error("[hch]" + e.getMessage());
 		}
 		model.addAttribute("username", "" + member.getUsername() + "(" + member.getEmail() + ")");
 		model.addAttribute("adminMessage", "관리자만 이용할 수 있는 영역입니다.");
