@@ -1,7 +1,6 @@
 package org.hch.security.board.model;
 
 import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
