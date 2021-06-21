@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="sidebarFragment">
+	<!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->	
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate">
+                    <i class="fas fa-comments-dollar"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">해주커</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+        
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#community"
+                    aria-expanded="true" aria-controls="community">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>커뮤니티</span>
+                </a>
+                <div id="community" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">게시판</h6>
+                        <a class="collapse-item" href="/general">자유게시판</a>
+                        <a class="collapse-item" href="register.html">질문게시판</a>
+                        <a class="collapse-item" href="forgot-password.html">신고게시판</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/stock">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>주식검색</span></a>
+            </li>
+
+             <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#referenceSite"
+                    aria-expanded="true" aria-controls="referenceSite">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>참고사이트</span>
+                </a>
+                <div id="referenceSite" class="collapse" aria-labelledby="referenceSite"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">참고사이트</h6>
+                        <a class="collapse-item" href="https://finance.yahoo.com" target="_balnk">야후파이낸스</a>
+                        <a class="collapse-item" href="https://www.bloomberg.com/asia" target="_balnk">블룸버그</a>
+                        <a class="collapse-item" href="https://kr.investing.com" target="_balnk">인베스팅</a>
+                        <a class="collapse-item" href="https://fintel.io" target="_balnk">핀텔</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+</th:block>
+</html>

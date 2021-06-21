@@ -1,0 +1,35 @@
+server:
+  address: localhost
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/usstock?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: cndgus97
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+      
+  devtools:
+    livereload:
+      enabled: true
+    
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+     
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
