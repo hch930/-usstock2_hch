@@ -1,4 +1,4 @@
-package org.hch;
+package org.hch.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
