@@ -1,0 +1,4 @@
+[DEBUG] 2021-06-07 15:30:05.471 [http-nio-8080-exec-5] HttpSessionSecurityContextRepository - Did not store empty SecurityContext
+[DEBUG] 2021-06-07 15:30:05.477 [http-nio-8080-exec-5] SecurityContextPersistenceFilter - Cleared SecurityContextHolder to complete request
+[INFO ] 2021-06-07 18:00:35.639 [RMI TCP Connection(2)-127.0.0.1] SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+[INFO ] 2021-06-07 18:00:35.654 [RMI TCP Connection(2)-127.0.0.1] ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
