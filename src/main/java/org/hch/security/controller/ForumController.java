@@ -9,4 +9,6 @@ public class ForumController {
 	public String general() {
 		return "/forum/generalForum";
 	}
+	
+	
 }
