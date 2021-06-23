@@ -31,8 +31,8 @@
 						<tbody>
 							<th:each items="${list}" var="board">
 								<tr>
-									<td><th:text value="${board.bno}" /></td>
-									<td><a class="move" href='<c:out value="${board.bno}"/>'>
+									<td><th:text value="${board.idx}" /></td>
+									<td><a class="move" href='<c:out value="${board.idx}"/>'>
 											<th:text value="${board.title}" /></a></td>
 									<td><th:text value="${board.writer}" /></td>
 									<td><span th:text="${#dates.format(examVO.regDttm, 'yyyy-MM-dd')}"></span></td>
