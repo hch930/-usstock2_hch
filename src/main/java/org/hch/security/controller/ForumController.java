@@ -24,6 +24,4 @@ public class ForumController {
 		model.addAttribute("boardList", boardService.findBoardList(pageable));
 		return "/forum/generalForum";
 	}
-	
-	
 }
