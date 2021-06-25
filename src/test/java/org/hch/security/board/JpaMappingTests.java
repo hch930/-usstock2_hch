@@ -1,44 +1,82 @@
 package org.hch.security.board;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hch.security.board.model.Board;
+import org.hch.security.board.model.BoardDto;
 import org.hch.security.board.repository.BoardRepository;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
-@AutoConfigureTestDatabase(replace=Replace.NONE)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class JpaMappingTests {
-	private final String title = "제목";
-	private final String content = "내용";
-	
+	private RestTemplate restTemplate;
 	@Autowired
-	private BoardRepository boardRepository;
+	BoardRepository boardRepository;
+/*	
+	@Test
+	public void save() {	
+		String inject_title = "title";
+		String inject_content = "content";
+		BoardDto dto = BoardDto.builder()
+				.title(inject_title)
+				.content(inject_content).build();	
+		
+		Board tmp = boardRepository.save(dto.toEntity());
+		
+		assertThat(tmp.getTitle()).isEqualTo(inject_title);
+		assertThat(tmp.getContent()).isEqualTo(inject_content);
+		
+		List<Board> list = boardRepository.findAll();
+		assertThat(list.get(0).getTitle()).isEqualTo(inject_title);
+		assertThat(list.get(0).getContent()).isEqualTo(inject_content);
+	}
+*/	
+	@Before
+	public void setUp() throws Exception {
+		restTemplate = new RestTemplate();
+	}
 	
-	@BeforeEach
-	public void init() {
-		boardRepository.save(Board.builder()
+	@Test
+	public void update_test() throws Exception{
+		String title = "title";
+		String content = "content";
+		Board board = boardRepository.save(Board.builder()
 				.title(title)
 				.content(content)
 				.regdate(LocalDateTime.now())
-				.updateDate(LocalDateTime.now()).build());
-	}																		
-	
-	@Test
-	public void test() {
-		Board board= boardRepository.getById((long) 1);
-		assertThat(board.getTitle(), is(title));
-		assertThat(board.getContent(), is(content));
+				.updateDate(LocalDateTime.now())
+				.build());
+		Long id = board.getIdx();
+		String change_title = "change_title";
+		String change_content = "change_content";
+		
+		BoardDto dto = BoardDto.builder()
+				.title(change_title)
+				.content(change_content)
+				.updateDate(LocalDateTime.now()).build();
+		
+		String url = "http://localhost:"+board+"/update/"+id;
+		System.out.println(url);
+		HttpEntity<BoardDto> requestEntity = new HttpEntity<>(dto);
+		
+		ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, String.class);
+		
+		List<Board>list = boardRepository.findAll();
+		
+		assertThat(list.get(0).getTitle()).isEqualTo(change_title);
+		assertThat(list.get(0).getContent()).isEqualTo(change_content);
 	}
 }

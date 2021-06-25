@@ -1,9 +1,10 @@
 package org.hch.security.board.service;
 
 import org.hch.security.board.model.Board;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.hch.security.board.model.BoardDto;
 
 public interface BoardService {
-	Page<Board> findBoardList(Pageable pageable);
+	public Board save(BoardDto dto);
+	
+	public void update(Long id, BoardDto dto);
 }

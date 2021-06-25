@@ -42,11 +42,16 @@ public class Board {
 	private LocalDateTime updateDate;
 
 	@Builder
-	public Board(Long idx, String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
-		this.idx = idx;
+	public Board(String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
 		this.title = title;
 		this.content = content;
 		this.regdate = regdate;
+		this.updateDate = updateDate;
+	}
+	
+	public void update(String title, String content, LocalDateTime updateDate) {
+		this.title = title;
+		this.content = content;
 		this.updateDate = updateDate;
 	}
 }

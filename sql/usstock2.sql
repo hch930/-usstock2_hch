@@ -11,3 +11,4 @@ CREATE TABLE MEMBER(
 );
 
 https://u2ful.tistory.com/32?category=872126
+https://suhyeokeee.tistory.com/94

@@ -1,27 +1,31 @@
 package org.hch.security.controller;
 
-import org.hch.security.board.repository.BoardRepository;
+import org.hch.security.board.model.Board;
+import org.hch.security.board.model.BoardDto;
 import org.hch.security.board.service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
 @RequestMapping("/board")
 public class ForumController {
-	@Autowired
-	private BoardService boardService;
+	private final BoardService boardService;
 	
-	@Autowired
-	private BoardRepository boardRepository;
+	@PostMapping("/save")
+	public Board save(@RequestBody BoardDto dto) {
+		return boardService.save(dto);
+	}
 	
-	@GetMapping("/general")
-	public String general(@PageableDefault Pageable pageable, Model model) {
-		model.addAttribute("boardList", boardService.findBoardList(pageable));
-		return "/forum/generalForum";
+	@PutMapping("/update/{id}")
+	public void update(@PathVariable Long id, @RequestBody BoardDto dto) {
+		boardService.update(id, dto);
 	}
 }
