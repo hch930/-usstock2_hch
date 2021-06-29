@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="~{layouts/layout}">
+      layout:decorator="~{../layouts/layout}">
 
 <body id="page-top">
 <th:block layout:fragment="content">
@@ -23,7 +23,6 @@
 							<tr>
 								<th>번호</th>
 								<th>제목</th>
-								<th>작성자</th>
 								<th>작성일</th>
 								<th>수정일</th>
 							</tr>
@@ -34,7 +33,6 @@
 									<td><th:text value="${board.idx}" /></td>
 									<td><a class="move" href='<c:out value="${board.idx}"/>'>
 											<th:text value="${board.title}" /></a></td>
-									<td><th:text value="${board.writer}" /></td>
 									<td><span th:text="${#dates.format(examVO.regDttm, 'yyyy-MM-dd')}"></span></td>
 									<td><span th:text="${#dates.format(examVO.regDttm, 'yyyy-MM-dd')}"></span></td>
 								</tr>
