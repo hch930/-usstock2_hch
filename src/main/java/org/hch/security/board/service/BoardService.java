@@ -6,7 +6,7 @@ import org.hch.security.board.model.Board;
 import org.hch.security.board.model.BoardDto;
 
 public interface BoardService {
-	public List<Board> getList();
+	public List<BoardDto> getBoardList();
 	
 	public Board save(BoardDto dto);
 	

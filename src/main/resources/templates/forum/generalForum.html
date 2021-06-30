@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="~{../layouts/layout}">
+      layout:decorator="~{layouts/layout}">
 
 <body id="page-top">
 <th:block layout:fragment="content">
@@ -9,12 +9,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <h1 class="h3 mb-2 text-gray-800">커뮤니티</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">자유게시판</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -28,15 +28,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							<th:each items="${list}" var="board">
-								<tr>
-									<td><th:text value="${board.idx}" /></td>
-									<td><a class="move" href='<c:out value="${board.idx}"/>'>
-											<th:text value="${board.title}" /></a></td>
-									<td><span th:text="${#dates.format(examVO.regDttm, 'yyyy-MM-dd')}"></span></td>
-									<td><span th:text="${#dates.format(examVO.regDttm, 'yyyy-MM-dd')}"></span></td>
-								</tr>
-							</th:each>
+							<tr th:each="board: ${board}">
+									<td>
+										<span th:text= "${board.idx}">
+										</span>
+									</td>
+									<td>
+										<a th:href="@{'/post/' + ${board.idx}}">
+											<span th:text="${board.title}" /></span>
+										</a>
+									</td>
+									<td> 
+										<span th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd')}"></span>
+									</td>
+									<td> 
+										<span th:text="${#temporals.format(board.updateDate, 'yyyy-MM-dd')}"></span>
+									</td>
+							</tr>
 						</tbody>
                                 </table>
                             </div>
@@ -56,7 +64,7 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-	header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>

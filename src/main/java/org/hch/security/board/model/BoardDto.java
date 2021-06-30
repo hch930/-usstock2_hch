@@ -11,13 +11,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BoardDto {
+	private Long idx;
 	private String title;
 	private String content;
 	private LocalDateTime regdate;
 	private LocalDateTime updateDate;
 	
 	@Builder
-	public BoardDto(String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
+	public BoardDto(Long idx, String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
+		this.idx = idx;
 		this.title = title;
 		this.content = content;
 		this.regdate = regdate;

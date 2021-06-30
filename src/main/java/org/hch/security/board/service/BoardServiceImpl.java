@@ -1,6 +1,7 @@
 package org.hch.security.board.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hch.security.board.model.Board;
@@ -17,9 +18,21 @@ public class BoardServiceImpl implements BoardService{
 	private final BoardRepository boardRepository;
 	
 	@Override
-	public List<Board> getList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardDto> getBoardList() {
+		List<Board> boards = boardRepository.findAll();
+		List<BoardDto> boardDtoList = new ArrayList<>();
+		
+		for(Board board : boards) {
+			BoardDto boardDto = BoardDto.builder()
+					.idx(board.getIdx())
+					.title(board.getTitle())
+					.regdate(board.getRegdate())
+					.updateDate(board.getUpdateDate())
+					.build();
+			
+			boardDtoList.add(boardDto);
+		}
+		return boardDtoList;
 	}
 	
 	@Override
