@@ -17,17 +17,17 @@ import lombok.RequiredArgsConstructor;
 public class ForumDataController {
 	private final BoardService boardService;
 		
-	@PostMapping("/gboard/save")
+	@PostMapping("/generalForum/save")
 	public Board save(@RequestBody BoardDto dto) {
 		return boardService.save(dto);
 	}
 	
-	@PutMapping("/gboard/update/{id}")
+	@PutMapping("/generalForum/update/{id}")
 	public void update(@PathVariable Long id, @RequestBody BoardDto dto) {
 		boardService.update(id, dto);
 	}
 	
-	@DeleteMapping("/gboard/delete/{id}")
+	@DeleteMapping("/generalForum/delete/{id}")
 	public void delete(@PathVariable Long id) {
 		boardService.delete(id);
 	}

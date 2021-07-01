@@ -2,7 +2,6 @@ package org.hch.security.controller;
 
 import java.util.List;
 
-import org.hch.security.board.model.Board;
 import org.hch.security.board.model.BoardDto;
 import org.hch.security.board.service.BoardService;
 import org.springframework.stereotype.Controller;
@@ -21,5 +20,10 @@ public class ForumController {
 		List<BoardDto> boardDtoList = boardService.getBoardList();	
 		model.addAttribute("board", boardDtoList);
 		return "/forum/generalForum";
+	}
+	
+	@GetMapping("/generalForum/generalForumInsert")
+	public String gInsert() {
+		return "/forum/generalForumInsert";
 	}
 }
