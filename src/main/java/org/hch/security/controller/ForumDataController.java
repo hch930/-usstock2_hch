@@ -1,6 +1,5 @@
 package org.hch.security.controller;
 
-import org.hch.security.board.model.Board;
 import org.hch.security.board.model.BoardDto;
 import org.hch.security.board.service.BoardService;
 import org.springframework.web.bind.annotation.DeleteMapping;
