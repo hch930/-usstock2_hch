@@ -14,14 +14,16 @@ public class BoardDto {
 	private Long idx;
 	private String title;
 	private String content;
+	private String writer;
 	private LocalDateTime regdate;
 	private LocalDateTime updateDate;
 	
 	@Builder
-	public BoardDto(Long idx, String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
+	public BoardDto(Long idx, String title, String content, String writer, LocalDateTime regdate, LocalDateTime updateDate) {
 		this.idx = idx;
 		this.title = title;
 		this.content = content;
+		this.writer = writer;
 		this.regdate = regdate;
 		this.updateDate = updateDate;
 	}
@@ -37,6 +39,7 @@ public class BoardDto {
 		return Board.builder()
 				.title(title)
 				.content(content)
+				.writer(writer)
 				.regdate(LocalDateTime.now())
 				.updateDate(LocalDateTime.now()).build();
 	}

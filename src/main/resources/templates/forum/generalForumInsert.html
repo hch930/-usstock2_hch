@@ -25,8 +25,9 @@
 							<textarea class="form-control" rows="3" name="content"></textarea>
 						</div>
 						<div class="form-group">
-							<label>작성자</label> <input class="form-control" name="username"
-								readonly="readonly">
+							<label>작성자</label>
+							<p class="form-control" th:text="${writer}" id = "writer"></p>
+               				<input type="hidden" name="writer" class="form-control" id="inputwriter" th:value="${writer}">
 						</div>
 						<button type="button" class="btn"
 							onclick="history.back()">취소</button>

@@ -4,11 +4,13 @@ import org.hch.security.board.model.Board;
 import org.hch.security.board.model.BoardDto;
 import org.hch.security.board.service.BoardService;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,8 +20,9 @@ public class ForumDataController {
 	private final BoardService boardService;
 		
 	@PostMapping("/generalForum/save")
-	public Board save(@RequestBody BoardDto dto) {
-		return boardService.save(dto);
+	public RedirectView save(@ModelAttribute BoardDto dto) {
+		boardService.save(dto);
+		return new RedirectView("/generalForum");
 	}
 	
 	@PutMapping("/generalForum/update/{id}")

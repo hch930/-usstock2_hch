@@ -36,15 +36,19 @@ public class Board {
 	private String content;
 	
 	@Column
+	private String writer;
+	
+	@Column
 	private LocalDateTime regdate;
 	
 	@Column
 	private LocalDateTime updateDate;
 
 	@Builder
-	public Board(String title, String content, LocalDateTime regdate, LocalDateTime updateDate) {
+	public Board(String title, String content, String writer, LocalDateTime regdate, LocalDateTime updateDate) {
 		this.title = title;
 		this.content = content;
+		this.writer = writer;
 		this.regdate = regdate;
 		this.updateDate = updateDate;
 	}

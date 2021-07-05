@@ -23,7 +23,7 @@ public class LoginController {
 	@Resource(name = "userServiceImpl")
 	private UserService userService;
 
-	@RequestMapping(value = { "/login" }, method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = {"/login" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(Model model) {
 		return "/auth/login";
 	}
@@ -71,6 +71,7 @@ public class LoginController {
 		}
 
 		model.addAttribute("username", "" + user.getUsername());
+		model.addAttribute("password", user.getPassword());
 		model.addAttribute("adminMessage", "Content Available Only for Users with Admin Role");
 
 		return "/index";
@@ -79,29 +80,5 @@ public class LoginController {
 	@GetMapping("/stock")
 	public String stock() {
 		return "/stock";
-	}
-
-	/**
-	 * Administration Home
-	 */
-	@RequestMapping(value = "/home/admin", method = RequestMethod.GET)
-	public String adminHome(Model model) {
-		return "/home/admin";
-	}
-
-	/**
-	 * User Home
-	 */
-	@RequestMapping(value = "/home/user", method = RequestMethod.GET)
-	public String userHome(Model model) {
-		return "/home/user";
-	}
-
-	/**
-	 * Guest Home
-	 */
-	@RequestMapping(value = "/home/guest", method = RequestMethod.GET)
-	public String guestHome(Model model) {
-		return "/home/guest";
 	}
 }
