@@ -37,7 +37,7 @@ public class CustomAuthFailureHandler implements AuthenticationFailureHandler {
 			errorMessage = "비밀번호 유효기간이 만료 되었습니다. 관리자에게 문의하세요.";
 		}
 		else {
-			errorMessage = "알수 없는 이유로 로그인에 실패하였습니다. 관리자에게 문의하세요.";
+			errorMessage = "알 수 없는 이유로 로그인에 실패하였습니다. 관리자에게 문의하세요.";
 		}
 		
 		//< set attributes
