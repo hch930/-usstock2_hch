@@ -1,5 +1,6 @@
 package org.hch.security.board.model;
 
+//https://victorydntmd.tistory.com/208
 
 import java.time.LocalDateTime;
 
@@ -57,5 +58,14 @@ public class Board {
 		this.title = title;
 		this.content = content;
 		this.updateDate = updateDate;
+	}
+
+	public Board toEntity() {
+		return Board.builder()
+				.title(title)
+				.content(content)
+				.writer(writer)
+				.regdate(LocalDateTime.now())
+				.updateDate(LocalDateTime.now()).build();
 	}
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="~{layouts/layout}">
+
+	<th:block layout:fragment="content">
+		<div class="container-fluid">
+			<!-- Page Heading -->
+			<h1 class="h3 mb-2 text-gray-800">자유게시판</h1>
+
+			<!-- DataTales Example -->
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">글 내용</h6>
+				</div>
+				<div class="card-body">
+						<div class="form-group">
+							<label>제목</label>
+							<p class="form-control" th:text="${detail.title}" id = "writer"></p>
+						</div>
+						<div class="form-group">
+							<label>내용</label>
+							<textarea class="form-control" rows="3" th:text="${detail.content}" id="content" readonly="readonly"></textarea>
+						</div>	
+						<div class="form-group">
+							<label>작성자</label>
+							<p class="form-control" th:text="${detail.writer}" id = "writer"></p>
+						</div>
+						<div class="form-group">
+							<label>작성일</label>
+							<p class="form-control" th:text="${#temporals.format(detail.regdate, 'yyyy-MM-dd')}" id = "regdate"></p>
+						</div>
+						<button data-oper='modify' class="btn btn-default">수정</button>
+						<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</html>

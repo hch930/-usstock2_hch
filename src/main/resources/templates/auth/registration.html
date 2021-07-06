@@ -42,35 +42,35 @@
                                 <div class="form-group">
                                        <input type="text" th:field="*{username}" class="form-control form-control-user"
                                             id="username" placeholder="아이디">
-                                       <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="validation-message"></label>
+                                       <label th:if="${#fields.hasErrors('username')}" th:style="${'color: red; font-size:15px;'}" th:errors="*{username}" th:sytle class="validation-message"></label>
                                 </div>
                                 
                                 <!-- Name -->
                                 <div class="form-group">
                                        <input type="text" th:field="*{name}" class="form-control form-control-user"
                                             id="name" placeholder="이름">
-                                       <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="validation-message"></label>
+                                       <label th:if="${#fields.hasErrors('name')}" th:style="${'color: red; font-size:15px;'}" th:errors="*{name}" class="validation-message"></label>
                                 </div>
                                       
                                 <!-- Password -->
                                 <div class="form-group">
                                      <input type="password" th:field="*{password}" class="form-control form-control-user"
                                             id="password" placeholder="비밀번호">
-                                     <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+                                     <label th:if="${#fields.hasErrors('password')}" th:style="${'color: red; font-size:15px;'}" th:errors="*{password}" class="validation-message"></label>
                                 </div>
                                 
                                 <!-- ConfirmPassword --> 
                                 <div class="form-group"> 
                                 	<input type="password" th:field="*{confirmpassword}" class="form-control form-control-user"
                                             id="confirmPassword" placeholder="비밀번호 재입력">
-                                    <label th:if="${#fields.hasErrors('confirmpassword')}" th:errors="*{confirmpassword}" class="validation-message"></label>                          
+                                    <label th:if="${#fields.hasErrors('confirmpassword')}" th:style="${'color: red; font-size:15px;'}" th:errors="*{confirmpassword}" class="validation-message"></label>                          
                                 </div>                         
                                 
                                 <!-- Email -->
                                 <div class="form-group">
                                     <input type="email" th:field="*{email}" class="form-control form-control-user" id="email"
                                         placeholder="이메일">
-                                    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
+                                    <label th:if="${#fields.hasErrors('email')}" th:style="${'color: red; font-size:15px;'}" th:errors="*{email}" class="validation-message"></label>
                                 </div>
                                 <!-- Submit -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
                                 <div class="form-group">

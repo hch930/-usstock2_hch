@@ -48,7 +48,7 @@ public class User {
 	private String password;
 
 	@Transient
-	@NotBlank(message = "사용할 비밀번호를 입력해주세요")
+	@NotBlank(message = "사용할 비밀번호를 다시 입력해주세요")
 	private String confirmpassword;
 
 	@Column(name = "name")

@@ -3,7 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="~{layouts/layout}">
 
-<body id="page-top">
 <th:block layout:fragment="content">
      <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -34,7 +33,7 @@
 										</span>
 									</td>
 									<td>
-										<a th:href="@{'/post/' + ${board.idx}}">
+										<a th:href="@{'/generalForum/' + ${board.idx}}">
 											<span th:text="${board.title}" /></span>
 										</a>
 									</td>
@@ -86,5 +85,4 @@ $(document).ready(function(){
 });
 </script>
 </th:block>
-</body>
 </html>
