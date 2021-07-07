@@ -22,9 +22,9 @@ spring:
     cache: false
     
   mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
+    hiddenmethod:
+      filter:
+        enabled: true
      
   jpa:
     hibernate:
