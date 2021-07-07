@@ -5,9 +5,8 @@ import static org.assertj.core.api.Assertions.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.hch.security.board.model.Board;
-import org.hch.security.board.model.BoardDto;
-import org.hch.security.board.repository.BoardRepository;
+import org.hch.security.forum.model.Forum;
+import org.hch.security.forum.repository.ForumRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +29,7 @@ public class JpaMappingTests {
     private int port;
 	
 	@Autowired
-	BoardRepository boardRepository;
+	ForumRepository forumRepository;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -92,19 +91,19 @@ public class JpaMappingTests {
 		String title = "title";
 		String content = "content";
 		
-		Board board = boardRepository.save(Board.builder()
+		Forum forum = forumRepository.save(Forum.builder()
 				.title(title)
 				.content(content)
 				.regdate(LocalDateTime.now())
 				.updateDate(LocalDateTime.now())
 				.build());
-		Long id = board.getIdx();
+		Long id = forum.getIdx();
 		String url = "http://localhost:"+port+"/board/delete/"+id;
 		System.out.println(url);
-		HttpEntity<Board> requestEntity = new HttpEntity<>(board);
+		HttpEntity<Forum> requestEntity = new HttpEntity<>(forum);
 		ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Long.class);
 		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		List<Board>list = boardRepository.findAll();
+		List<Forum>list = forumRepository.findAll();
 		assertThat(list.size()).isEqualTo(0);
 	}
 }

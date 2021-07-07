@@ -1,4 +1,4 @@
-package org.hch.security.board.model;
+package org.hch.security.forum.model;
 
 //https://victorydntmd.tistory.com/208
 
@@ -12,17 +12,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import groovy.transform.ToString;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
-@NoArgsConstructor
+@ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table
-public class Board {
+public class Forum {
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column
@@ -44,14 +45,18 @@ public class Board {
 	
 	@Column
 	private LocalDateTime updateDate;
+	
+	@Column
+	private Integer categoryNo;
 
 	@Builder
-	public Board(String title, String content, String writer, LocalDateTime regdate, LocalDateTime updateDate) {
+	public Forum(String title, String content, String writer, LocalDateTime regdate, LocalDateTime updateDate, Integer categoryNo) {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
 		this.regdate = regdate;
 		this.updateDate = updateDate;
+		this.categoryNo = categoryNo;
 	}
 	
 	public void update(String title, String content, LocalDateTime updateDate) {
@@ -59,13 +64,15 @@ public class Board {
 		this.content = content;
 		this.updateDate = updateDate;
 	}
-
-	public Board toEntity() {
-		return Board.builder()
+	
+	public Forum toEntity() {
+		 Forum forum = Forum.builder()
 				.title(title)
 				.content(content)
 				.writer(writer)
 				.regdate(LocalDateTime.now())
-				.updateDate(LocalDateTime.now()).build();
+				.updateDate(LocalDateTime.now())
+				.categoryNo(categoryNo).build();
+		 return forum;
 	}
 }
